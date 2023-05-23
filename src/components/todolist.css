@@ -1,0 +1,15 @@
+
+::-webkit-scrollbar{
+    width: 1px;
+}
+
+.todolist{
+    padding-top: 10px;
+    padding-bottom: 15px; ;
+    max-width: 50%;
+    height: 70vh;
+    
+    margin: 3rem auto 0 auto;
+    overflow-y: scroll;
+    
+}

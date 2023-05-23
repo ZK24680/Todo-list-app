@@ -1,0 +1,143 @@
+.todo{
+    max-width:90%;
+    min-height: 8rem;
+    background-color: #CFCCC4;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+    margin: 0 auto 10px auto;
+
+
+    position: relative;
+
+}
+
+.todo:last-of-type{
+    margin: 0 auto 0 auto;
+}
+
+
+.todo.completed{
+    background-color: #95D5B2;
+}
+
+.todo.completed p{
+    text-decoration: line-through;
+}
+
+
+
+.todo p{
+    color: #0E2239;
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+}
+
+.todoEdit{
+    width: 250px;
+    color: #0E2239;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background-color: none;
+    padding: 5px 0;
+}
+
+
+.todo .todo-editor{
+    display: flex;
+    gap: 5px;
+}
+
+.todo .todo-editor form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo .todo-editor .check-item{
+    width: 30px;
+    height: 30px;
+    background-color: #c9ada7;
+
+
+    border: 1px solid #d4d3d3;
+    border-radius: 9px;
+    box-shadow: 0 4px 5px #5d5b5b;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: .3s;
+    cursor: pointer;
+
+    position: relative;
+}
+
+.todo .todo-editor .check-item::after{
+    content: 'Done';
+    color: #95D5B2;
+    position: absolute;
+    opacity: 0;
+    transition: .3s;
+}
+
+.todo .todo-editor .check-item:hover{
+    background-color: #0E2239;
+}
+
+.todo .todo-editor .check-item:hover::after{
+    opacity: 1;
+}
+
+.todo .todo-editor .check-item ion-icon{
+    color: #95D5B2;
+    font-size: 20px;
+    transform: scale(0);
+    transition: .3s;
+}
+
+.todo .todo-editor .check{
+    display: none;
+}
+
+.todo .todo-editor .check:checked ~ .check-item{
+    background-color: #0E2239;
+    border-radius: 50%;
+}
+
+.todo .todo-editor .check:checked ~ .check-item::after{
+    opacity: 0;
+}
+
+.todo .todo-editor .check:checked ~ .check-item ion-icon{
+    transform: scale(1);
+}
+
+.todo .btn{
+    color: #333;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #960d17;
+    border-radius:50%;
+    border: 1px solid #c5bfbf;
+    box-shadow: 0px 4px 5px #5d5b5b;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    transform: translate(10px,-10px);
+}
+

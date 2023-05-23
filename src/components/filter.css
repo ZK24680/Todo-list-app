@@ -1,0 +1,33 @@
+.filter{
+    margin-top:5rem ;
+    
+}
+
+.filter ul{
+    width: 25%;
+    list-style-type: none;
+    /* border-bottom: 3px solid #212529; */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+    padding: 5px 5px 6px 5px;
+    
+    margin: auto;
+}
+
+
+
+.filter ul li >a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: #f4f4f4;
+}
+
+.filter ul li > a.active{
+    color: #d5bdaf;
+    border: 1px solid ;
+    padding: 4px;
+    border-radius: 50%;
+}
