@@ -5,9 +5,25 @@ import { defineElement } from 'lord-icon-element';
 
 defineElement(lottie.loadAnimation);
 
-export default function Todo({todo,deleteTodo}) {
+export default function Todo({todo,deleteTodo,updateTodo}) {
+
+
+    let checkComplete= ()=>{
+
+        let updatetodo = {
+            id : todo.id,
+            title : todo.title,
+            completed : !todo.completed
+        }
+
+
+        updateTodo(updatetodo);
+
+    }
+
+
   return (
-    <div className='todo'>
+    <div className={`todo ${todo.completed ? 'completed' : ''}`}>
 
 
         <p>{todo.title}</p>
@@ -17,8 +33,8 @@ export default function Todo({todo,deleteTodo}) {
 
         <div className='todo-editor'>
             <form>
-                <input type='checkbox' name='' className='check' id={`check${todo.id}`}></input>
-                <label htmlFor={`check${todo.id}`} className='check-item'>
+                <input type='checkbox' name='' checked={todo.completed} onChange={checkComplete}  className='check' id={`check${todo.id}`} ></input>
+                <label htmlFor={`check${todo.id}`}  className='check-item'>
                         <ion-icon  name="checkmark-outline"></ion-icon>
                 </label>
             </form>

@@ -47,7 +47,7 @@ function App() {
   }
 
 
-  let remainCount = todo.length;
+  let remainCount = todo.filter(todo=> !todo.completed).length;
 
 
   let deleteTodo = (todoId)=>{
@@ -73,6 +73,23 @@ function App() {
   }
 
 
+  let updateTodo = (uptodo)=>{
+
+    //Client Site update 
+    setTodo(prevState=>{
+
+      return prevState.map(todo=> {
+          if(todo.id === uptodo.id){
+              return uptodo
+          }
+
+          return todo;
+      })
+
+    })
+  }
+
+
 
 
   return (
@@ -81,7 +98,7 @@ function App() {
         <InputForm addTodo={addTodo}/>
         <Filter/>
         <CheckallDeleteRemain remainCount={remainCount}/>
-        <Todolist todos={todo} deleteTodo={deleteTodo}/>
+        <Todolist todos={todo} deleteTodo={deleteTodo} updateTodo={updateTodo}/>
     </div>
   );
 }

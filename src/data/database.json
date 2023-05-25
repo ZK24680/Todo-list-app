@@ -1,14 +1,9 @@
 {
   "todo": [
     {
-      "id": 2,
-      "title": "Have to go",
-      "completed": true
-    },
-    {
       "id": 644.7414035669111,
       "title": "Have to cook",
-      "completed": false
+      "completed": true
     },
     {
       "id": 888.9629560456983,
