@@ -4,11 +4,11 @@ import Remain from './remain';
 import Checkanddelete from './checkanddelete';
 
 
-export default function CheckallDeleteRemain({remainCount}) {
+export default function CheckallDeleteRemain({remainCount,checkAll,todo}) {
   return (
     <div className='general-container'>
         <Remain remainCount={remainCount}/>
-        <Checkanddelete/>
+        <Checkanddelete checkAll={checkAll} todo={todo}/>
     </div>
   )
 }

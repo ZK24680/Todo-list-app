@@ -41,7 +41,7 @@ function App() {
 
     //Client Site add
     setTodo(prevState=> {
-        return [newtodo,...prevState];
+        return [...prevState,newtodo];
     })
 
   }
@@ -75,6 +75,18 @@ function App() {
 
   let updateTodo = (uptodo)=>{
 
+    //Server Site Update
+    fetch(`http://localhost:3001/todo/${uptodo.id}`,{
+      method : 'PATCH',
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+
+      body : JSON.stringify(uptodo)
+
+    })
+
     //Client Site update 
     setTodo(prevState=>{
 
@@ -89,6 +101,21 @@ function App() {
     })
   }
 
+  let checkAll = (todos)=>{
+
+    // Server site update
+    todos.forEach(todo=>{
+
+      updateTodo(todo);
+
+    })
+
+
+    //Client site update
+    // setTodo(todos);
+
+  }
+
 
 
 
@@ -97,8 +124,8 @@ function App() {
         <Title/>
         <InputForm addTodo={addTodo}/>
         <Filter/>
-        <CheckallDeleteRemain remainCount={remainCount}/>
-        <Todolist todos={todo} deleteTodo={deleteTodo} updateTodo={updateTodo}/>
+        <CheckallDeleteRemain remainCount={remainCount} todo={todo} checkAll={checkAll}/>
+        <Todolist todos={todo} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </div>
   );
 }

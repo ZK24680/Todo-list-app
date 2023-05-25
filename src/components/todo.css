@@ -36,16 +36,37 @@
     letter-spacing: 1.5px;
 }
 
+.todo form{
+    width: 100%;
+}
+
 .todoEdit{
-    width: 250px;
+    width: 90%;
     color: #0E2239;
     font-size: 2rem;
     border: none;
     outline: none;
     background-color: none;
     padding: 5px 0;
+    margin-right: 10px;
 }
 
+
+.editSave--btn{
+    font-size: 1.5rem;
+    border: none;
+    border-bottom: 1px solid #333;
+    background: none;
+    color: #0d0c0b;
+
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.editSave--btn:hover{
+    color: #023b7c;
+    border-color: #023b7c;
+}
 
 .todo .todo-editor{
     display: flex;
@@ -117,6 +138,22 @@
 .todo .todo-editor .check:checked ~ .check-item ion-icon{
     transform: scale(1);
 }
+
+
+.edit--btn{
+    border: none;
+    background: none;
+
+    
+}
+
+
+
+
+
+
+
+
 
 .todo .btn{
     color: #333;
