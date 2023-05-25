@@ -5,7 +5,7 @@ import { defineElement } from 'lord-icon-element';
 
 defineElement(lottie.loadAnimation);
 
-export default function Todo({todo}) {
+export default function Todo({todo,deleteTodo}) {
   return (
     <div className='todo'>
 
@@ -37,7 +37,7 @@ export default function Todo({todo}) {
             </lord-icon>
         </div>
 
-        <button type='button' className='btn'>
+        <button type='button' className='btn' onClick={()=> deleteTodo(todo.id)}>
             <lord-icon
                 src="https://cdn.lordicon.com/qjwkduhc.json"
                 trigger="hover"

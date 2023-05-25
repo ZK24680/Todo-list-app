@@ -4,10 +4,10 @@ import Todo from './todo';
 
 
 
-export default function Todolist({todos}) {
+export default function Todolist({todos,deleteTodo}) {
   return (
     <div className='todolist'>
-        {todos && todos.map((todo)=> <Todo key={todo.id} todo={todo}/>)}
+        {todos && todos.map((todo)=> <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo}/>)}
     </div>
   )
 }

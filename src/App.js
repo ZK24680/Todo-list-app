@@ -50,6 +50,29 @@ function App() {
   let remainCount = todo.length;
 
 
+  let deleteTodo = (todoId)=>{
+     //Server Site Delete
+      fetch(`http://localhost:3001/todo/${todoId}`,{
+        method : 'DELETE',
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+  
+        body : JSON.stringify(todo)
+
+      })
+
+     //Client Site delete
+     setTodo(prevState => {
+
+
+        return prevState.filter(todo => todo.id !== todoId);
+
+     })
+  }
+
+
 
 
   return (
@@ -58,7 +81,7 @@ function App() {
         <InputForm addTodo={addTodo}/>
         <Filter/>
         <CheckallDeleteRemain remainCount={remainCount}/>
-        <Todolist todos={todo}/>
+        <Todolist todos={todo} deleteTodo={deleteTodo}/>
     </div>
   );
 }
