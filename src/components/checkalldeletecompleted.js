@@ -4,10 +4,10 @@ import Remain from './remain';
 import Checkanddelete from './checkanddelete';
 
 
-export default function CheckallDeleteRemain() {
+export default function CheckallDeleteRemain({remainCount}) {
   return (
     <div className='general-container'>
-        <Remain/>
+        <Remain remainCount={remainCount}/>
         <Checkanddelete/>
     </div>
   )

@@ -5,20 +5,20 @@ import { defineElement } from 'lord-icon-element';
 
 defineElement(lottie.loadAnimation);
 
-export default function Todo({num}) {
+export default function Todo({todo}) {
   return (
     <div className='todo'>
 
 
-        <p>Have to eat </p>
+        <p>{todo.title}</p>
         {/* <form>
             <input type='text' className='todoEdit' autoComplete='off'></input>
         </form> */}
 
         <div className='todo-editor'>
             <form>
-                <input type='checkbox' name='' className='check' id={`check${num}`}></input>
-                <label for={`check${num}`} className='check-item'>
+                <input type='checkbox' name='' className='check' id={`check${todo.id}`}></input>
+                <label htmlFor={`check${todo.id}`} className='check-item'>
                         <ion-icon  name="checkmark-outline"></ion-icon>
                 </label>
             </form>
