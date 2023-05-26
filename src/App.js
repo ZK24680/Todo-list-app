@@ -25,6 +25,8 @@ function App() {
   },[]);
 
 
+
+
   let addTodo = (newtodo)=>{
 
     //Server site Add
@@ -59,7 +61,7 @@ function App() {
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
   
-        body : JSON.stringify(todo)
+        
 
       })
 
@@ -104,16 +106,23 @@ function App() {
   let checkAll = (todos)=>{
 
     // Server site update
-    todos.forEach(todo=>{
+    todos.forEach(uptodo => {
 
-      updateTodo(todo);
+      updateTodo(uptodo);
+        
 
-    })
-
-
+    });
     //Client site update
-    // setTodo(todos);
+    setTodo(todos);
 
+  }
+
+  let deleteComplete = (delTodos)=>{
+
+
+      delTodos.forEach(deltodo=>{
+        deleteTodo(deltodo.id);
+      })
   }
 
 
@@ -124,7 +133,7 @@ function App() {
         <Title/>
         <InputForm addTodo={addTodo}/>
         <Filter/>
-        <CheckallDeleteRemain remainCount={remainCount} todo={todo} checkAll={checkAll}/>
+        <CheckallDeleteRemain remainCount={remainCount} todo={todo} checkAll={checkAll} deleteComplete={deleteComplete}/>
         <Todolist todos={todo} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </div>
   );
