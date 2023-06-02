@@ -1,3 +1,19 @@
 {
-  "todo": []
+  "todo": [
+    {
+      "id": 418.0903275127678,
+      "title": "Have to cook",
+      "completed": false
+    },
+    {
+      "id": 81.44495163256227,
+      "title": "Have to clean bed room",
+      "completed": true
+    },
+    {
+      "id": 794.3244299073579,
+      "title": "Have to wake up at 7am",
+      "completed": false
+    }
+  ]
 }

@@ -5,7 +5,7 @@ import InputForm from './components/inputform.js';
 import Filter from './components/filter';
 import Todolist from './components/todolist';
 import CheckallDeleteRemain from './components/checkalldeletecompleted';
-import { useEffect,useState } from 'react';
+import { useCallback, useEffect,useState } from 'react';
 
 
 
@@ -14,15 +14,35 @@ function App() {
 
   let [todo,setTodo] = useState([]);
 
+  let [filterTodo,setFilterTodo] = useState(todo);
+
   useEffect(()=>{
 
       fetch('http://localhost:3001/todo')
       .then(res => res.json())
       .then(res => {
         setTodo(res);
+        setFilterTodo(res);
       })
 
   },[]);
+
+
+  let filterfunction = useCallback(filter =>{
+
+    if(filter === 'All'){
+      setFilterTodo(todo);
+    }
+
+    if(filter === 'Completed'){
+      setFilterTodo(todo.filter(todo=> todo.completed));
+    }
+
+    if(filter === 'Todo'){
+      setFilterTodo(todo.filter(todo=> !todo.completed));
+    }
+
+  },[todo])
 
 
 
@@ -132,9 +152,9 @@ function App() {
     <div className="App">
         <Title/>
         <InputForm addTodo={addTodo}/>
-        <Filter/>
+        <Filter filterfunction={filterfunction}/>
         <CheckallDeleteRemain remainCount={remainCount} todo={todo} checkAll={checkAll} deleteComplete={deleteComplete}/>
-        <Todolist todos={todo} deleteTodo={deleteTodo} updateTodo={updateTodo} />
+        <Todolist todos={filterTodo} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </div>
   );
 }
